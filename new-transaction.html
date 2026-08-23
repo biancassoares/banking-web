@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova Transação | Sistema Bancário Simplificado</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="sidebar-logo">
+                <i data-lucide="landmark"></i>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="dashboard.html" class="menu-item">
+                    <i data-lucide="wallet-cards"></i>
+                    <span>Contas</span>
+                </a>
+
+                <a href="new-transaction.html" class="menu-item active">
+                    <i data-lucide="arrow-right-left"></i>
+                    <span>Nova Transação</span>
+                </a>
+
+                <a href="history.html" class="menu-item">
+                    <i data-lucide="clipboard-list"></i>
+                    <span>Histórico</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <a href="index.html" class="logout">
+            <i data-lucide="log-out"></i>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div></div>
+
+            <div class="user-menu">
+
+                <div class="user-avatar">
+                    BS
+                </div>
+
+                <span>Bianca Soares</span>
+
+                <i data-lucide="chevron-down"></i>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE HEADER -->
+        <section class="page-header transaction-header">
+
+            <div>
+                <h1>Nova Transação</h1>
+                <p>Escolha o tipo de transação</p>
+            </div>
+
+        </section>
+
+
+        <!-- TRANSACTION OPTIONS -->
+        <section class="transaction-options">
+
+            <!-- DEPOSIT -->
+            <article class="transaction-card" data-transaction="deposit">
+
+                <div class="transaction-icon deposit-icon">
+                    <i data-lucide="arrow-down"></i>
+                </div>
+
+                <h2>Depósito</h2>
+
+                <p>
+                    Adicionar dinheiro à sua conta
+                </p>
+
+            </article>
+
+
+            <!-- WITHDRAW -->
+            <article class="transaction-card" data-transaction="withdraw">
+
+                <div class="transaction-icon withdraw-icon">
+                    <i data-lucide="arrow-up"></i>
+                </div>
+
+                <h2>Saque</h2>
+
+                <p>
+                    Retirar dinheiro da sua conta
+                </p>
+
+            </article>
+
+
+            <!-- TRANSFER -->
+            <article class="transaction-card" data-transaction="transfer">
+
+                <div class="transaction-icon transfer-icon">
+                    <i data-lucide="arrow-right-left"></i>
+                </div>
+
+                <h2>Transferência</h2>
+
+                <p>
+                    Enviar dinheiro para outra conta
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+    <!-- TRANSACTION MODAL -->
+    <div class="modal-overlay" id="transaction-modal">
+
+        <div class="transaction-modal">
+
+            <button class="modal-close" id="modal-close">
+                <i data-lucide="x"></i>
+            </button>
+
+
+            <div class="modal-header">
+
+                <div class="modal-icon" id="modal-icon">
+                    <i data-lucide="arrow-down"></i>
+                </div>
+
+                <div>
+                    <h2 id="modal-title">Depósito</h2>
+                    <p id="modal-description">
+                        Adicione dinheiro à sua conta
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form id="transaction-form">
+
+                <div class="form-field">
+
+                    <label for="account">
+                        Conta
+                    </label>
+
+                    <select id="account">
+
+                        <option>
+                            Conta •••• 1234
+                        </option>
+
+                        <option>
+                            Conta •••• 5678
+                        </option>
+
+                        <option>
+                            Conta •••• 9101
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                        class="form-field"
+                        id="destination-account-field"
+                >
+
+                    <label for="destination-account">
+                        Conta de destino
+                    </label>
+
+                    <input
+                            type="text"
+                            id="destination-account"
+                            placeholder="Digite a conta de destino"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="amount">
+                        Valor
+                    </label>
+
+                    <div class="amount-input">
+
+                        <span>R$</span>
+
+                        <input
+                                type="number"
+                                id="amount"
+                                placeholder="0,00"
+                                min="0"
+                                step="0.01"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                            type="button"
+                            class="cancel-button"
+                            id="cancel-button"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                            type="submit"
+                            class="confirm-button"
+                            id="confirm-button"
+                    >
+                        Confirmar depósito
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/transaction.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>

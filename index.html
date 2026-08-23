@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema Bancário Simplificado</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<main class="login-container">
+
+    <!-- Lado esquerdo -->
+    <section class="login-brand">
+
+        <div class="brand-content">
+
+            <div class="brand-icon">
+                🏦
+            </div>
+
+            <h1>Sistema Bancário</h1>
+
+            <p>
+                Gerencie sua conta de forma simples e segura.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lado direito -->
+    <section class="login-form-section">
+
+        <div class="login-form-container">
+
+            <div class="login-header">
+
+                <h2>Bem-vindo de volta!</h2>
+
+                <p>
+                    Entre na sua conta para continuar.
+                </p>
+
+            </div>
+
+            <form id="login-form">
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+
+                    <input
+                            type="email"
+                            id="email"
+                            placeholder="seu@email.com"
+                            required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+
+                    <input
+                            type="password"
+                            id="password"
+                            placeholder="Digite sua senha"
+                            required
+                    >
+                </div>
+
+                <button type="submit" class="login-button">
+                    Entrar
+                </button>
+
+            </form>
+
+            <p id="login-error"></p>
+
+            <p class="register-text">
+                Não tem uma conta?
+                <a href="register.html">Registre-se</a>
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="js/auth.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Histórico | Sistema Bancário Simplificado</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="sidebar-logo">
+                <i data-lucide="landmark"></i>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="dashboard.html" class="menu-item">
+                    <i data-lucide="wallet-cards"></i>
+                    <span>Contas</span>
+                </a>
+
+                <a href="new-transaction.html" class="menu-item">
+                    <i data-lucide="arrow-right-left"></i>
+                    <span>Nova Transação</span>
+                </a>
+
+                <a href="history.html" class="menu-item active">
+                    <i data-lucide="clipboard-list"></i>
+                    <span>Histórico</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <a href="index.html" class="logout">
+            <i data-lucide="log-out"></i>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div></div>
+
+            <div class="user-menu">
+
+                <div class="user-avatar">
+                    BS
+                </div>
+
+                <span>Bianca Soares</span>
+
+                <i data-lucide="chevron-down"></i>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE HEADER --><!-- PAGE HEADER -->
+        <section class="page-header history-header">
+
+            <div>
+                <h1>Histórico de Transações</h1>
+                <p>Confira suas transações realizadas</p>
+            </div>
+
+        </section>
+
+
+        <!-- FILTERS -->
+        <section class="history-filters">
+
+            <div class="filter-field">
+
+                <label for="filter-account">
+                    Conta
+                </label>
+
+                <select id="filter-account">
+
+                    <option>
+                        Todas as contas
+                    </option>
+
+                    <option>
+                        Conta •••• 1234
+                    </option>
+
+                    <option>
+                        Conta •••• 5678
+                    </option>
+
+                    <option>
+                        Conta •••• 9101
+                    </option>
+
+                </select>
+            </div>
+
+
+            <div class="filter-field">
+
+                <label for="filter-type">
+                    Tipo
+                </label>
+
+                <select id="filter-type">
+                    <option>Todos</option>
+                    <option>Depósito</option>
+                    <option>Saque</option>
+                    <option>Transferência</option>
+                </select>
+
+            </div>
+
+
+            <div class="filter-field">
+
+                <label for="start-date">
+                    Data inicial
+                </label>
+
+                <input
+                        type="date"
+                        id="start-date"
+                >
+
+            </div>
+
+
+            <div class="filter-field">
+
+                <label for="end-date">
+                    Data final
+                </label>
+
+                <input
+                        type="date"
+                        id="end-date"
+                >
+
+            </div>
+
+
+            <button class="filter-button">
+                <i data-lucide="search"></i>
+                Filtrar
+            </button>
+
+        </section>
+
+
+        <!-- TRANSACTIONS TABLE -->
+        <section class="history-container">
+
+            <div class="table-wrapper">
+
+                <table class="transactions-table">
+
+                    <thead>
+
+                    <tr>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Tipo</th>
+                        <th>Conta</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    <!-- TRANSFER -->
+                    <tr>
+
+                        <td>
+                            19/05/2026 10:45
+                        </td>
+
+                        <td>
+                            <strong>
+                                Transferência para Maria Silva
+                            </strong>
+
+                            <span>
+                        Pix
+                    </span>
+                        </td>
+
+                        <td>
+                    <span class="type-badge transfer">
+                        Transferência
+                    </span>
+                        </td>
+
+                        <td>
+                            <strong>
+                                Conta Corrente
+                            </strong>
+
+                            <span>
+                        •••• 1234
+                    </span>
+                        </td>
+
+                        <td class="negative">
+                            - R$ 250,00
+                        </td>
+
+                        <td>
+                    <span class="status-badge">
+                        Concluída
+                    </span>
+                        </td>
+
+                    </tr>
+
+
+                    <!-- DEPOSIT -->
+                    <tr>
+
+                        <td>
+                            19/05/2026 09:30
+                        </td>
+
+                        <td>
+                            <strong>
+                                Depósito
+                            </strong>
+                        </td>
+
+                        <td>
+                    <span class="type-badge deposit">
+                        Depósito
+                    </span>
+                        </td>
+
+                        <td>
+                            <strong>
+                                Conta Corrente
+                            </strong>
+
+                            <span>
+                        •••• 1234
+                    </span>
+                        </td>
+
+                        <td class="positive">
+                            + R$ 1.200,00
+                        </td>
+
+                        <td>
+                    <span class="status-badge">
+                        Concluída
+                    </span>
+                        </td>
+
+                    </tr>
+
+
+                    <!-- WITHDRAW -->
+                    <tr>
+
+                        <td>
+                            18/05/2026 16:20
+                        </td>
+
+                        <td>
+                            <strong>
+                                Saque
+                            </strong>
+                        </td>
+
+                        <td>
+                    <span class="type-badge withdraw">
+                        Saque
+                    </span>
+                        </td>
+
+                        <td>
+                            <strong>
+                                Conta Corrente
+                            </strong>
+
+                            <span>
+                        •••• 1234
+                    </span>
+                        </td>
+
+                        <td class="negative">
+                            - R$ 300,00
+                        </td>
+
+                        <td>
+                    <span class="status-badge">
+                        Concluída
+                    </span>
+                        </td>
+
+                    </tr>
+
+
+                    <!-- RECEIVED TRANSFER -->
+                    <tr>
+
+                        <td>
+                            17/05/2026 14:00
+                        </td>
+
+                        <td>
+                            <strong>
+                                Transferência recebida
+                            </strong>
+
+                            <span>
+                        De João Santos
+                    </span>
+                        </td>
+
+                        <td>
+                    <span class="type-badge transfer">
+                        Transferência
+                    </span>
+                        </td>
+
+                        <td>
+                            <strong>
+                                Conta Bancária
+                            </strong>
+
+                            <span>
+    •••• 1234
+</span>
+                        </td>
+
+                        <td class="positive">
+                            + R$ 500,00
+                        </td>
+
+                        <td>
+                    <span class="status-badge">
+                        Concluída
+                    </span>
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- PAGINATION -->
+                <div class="pagination">
+
+                    <button class="pagination-button">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+
+                    <button class="pagination-number active">
+                        1
+                    </button>
+
+                    <button class="pagination-number">
+                        2
+                    </button>
+
+                    <button class="pagination-number">
+                        3
+                    </button>
+
+                    <button class="pagination-button">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>
