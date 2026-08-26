@@ -64,11 +64,16 @@
 
             <div class="user-menu">
 
-                <div class="user-avatar">
-                    BS
+                <div
+                        class="user-avatar"
+                        id="user-avatar"
+                >
+                    --
                 </div>
 
-                <span>Bianca Soares</span>
+                <span id="user-name">
+    Usuário
+
 
                 <i data-lucide="chevron-down"></i>
 
@@ -99,20 +104,8 @@
 
                 <select id="filter-account">
 
-                    <option>
-                        Todas as contas
-                    </option>
-
-                    <option>
-                        Conta •••• 1234
-                    </option>
-
-                    <option>
-                        Conta •••• 5678
-                    </option>
-
-                    <option>
-                        Conta •••• 9101
+                    <option value="" disabled selected>
+                        Selecione uma conta
                     </option>
 
                 </select>
@@ -126,10 +119,23 @@
                 </label>
 
                 <select id="filter-type">
-                    <option>Todos</option>
-                    <option>Depósito</option>
-                    <option>Saque</option>
-                    <option>Transferência</option>
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    <option value="DEPOSIT">
+                        Depósito
+                    </option>
+
+                    <option value="WITHDRAW">
+                        Saque
+                    </option>
+
+                    <option value="TRANSFER">
+                        Transferência
+                    </option>
+
                 </select>
 
             </div>
@@ -163,11 +169,14 @@
             </div>
 
 
-            <button class="filter-button">
+            <button
+                    type="button"
+                    class="filter-button"
+                    id="filter-button"
+            >
                 <i data-lucide="search"></i>
                 Filtrar
             </button>
-
         </section>
 
 
@@ -191,182 +200,7 @@
 
                     </thead>
 
-                    <tbody>
-
-                    <!-- TRANSFER -->
-                    <tr>
-
-                        <td>
-                            19/05/2026 10:45
-                        </td>
-
-                        <td>
-                            <strong>
-                                Transferência para Maria Silva
-                            </strong>
-
-                            <span>
-                        Pix
-                    </span>
-                        </td>
-
-                        <td>
-                    <span class="type-badge transfer">
-                        Transferência
-                    </span>
-                        </td>
-
-                        <td>
-                            <strong>
-                                Conta Corrente
-                            </strong>
-
-                            <span>
-                        •••• 1234
-                    </span>
-                        </td>
-
-                        <td class="negative">
-                            - R$ 250,00
-                        </td>
-
-                        <td>
-                    <span class="status-badge">
-                        Concluída
-                    </span>
-                        </td>
-
-                    </tr>
-
-
-                    <!-- DEPOSIT -->
-                    <tr>
-
-                        <td>
-                            19/05/2026 09:30
-                        </td>
-
-                        <td>
-                            <strong>
-                                Depósito
-                            </strong>
-                        </td>
-
-                        <td>
-                    <span class="type-badge deposit">
-                        Depósito
-                    </span>
-                        </td>
-
-                        <td>
-                            <strong>
-                                Conta Corrente
-                            </strong>
-
-                            <span>
-                        •••• 1234
-                    </span>
-                        </td>
-
-                        <td class="positive">
-                            + R$ 1.200,00
-                        </td>
-
-                        <td>
-                    <span class="status-badge">
-                        Concluída
-                    </span>
-                        </td>
-
-                    </tr>
-
-
-                    <!-- WITHDRAW -->
-                    <tr>
-
-                        <td>
-                            18/05/2026 16:20
-                        </td>
-
-                        <td>
-                            <strong>
-                                Saque
-                            </strong>
-                        </td>
-
-                        <td>
-                    <span class="type-badge withdraw">
-                        Saque
-                    </span>
-                        </td>
-
-                        <td>
-                            <strong>
-                                Conta Corrente
-                            </strong>
-
-                            <span>
-                        •••• 1234
-                    </span>
-                        </td>
-
-                        <td class="negative">
-                            - R$ 300,00
-                        </td>
-
-                        <td>
-                    <span class="status-badge">
-                        Concluída
-                    </span>
-                        </td>
-
-                    </tr>
-
-
-                    <!-- RECEIVED TRANSFER -->
-                    <tr>
-
-                        <td>
-                            17/05/2026 14:00
-                        </td>
-
-                        <td>
-                            <strong>
-                                Transferência recebida
-                            </strong>
-
-                            <span>
-                        De João Santos
-                    </span>
-                        </td>
-
-                        <td>
-                    <span class="type-badge transfer">
-                        Transferência
-                    </span>
-                        </td>
-
-                        <td>
-                            <strong>
-                                Conta Bancária
-                            </strong>
-
-                            <span>
-    •••• 1234
-</span>
-                        </td>
-
-                        <td class="positive">
-                            + R$ 500,00
-                        </td>
-
-                        <td>
-                    <span class="status-badge">
-                        Concluída
-                    </span>
-                        </td>
-
-                    </tr>
+                    <tbody id="transactions-body">
 
                     </tbody>
 
@@ -374,28 +208,10 @@
 
 
                 <!-- PAGINATION -->
-                <div class="pagination">
-
-                    <button class="pagination-button">
-                        <i data-lucide="chevron-left"></i>
-                    </button>
-
-                    <button class="pagination-number active">
-                        1
-                    </button>
-
-                    <button class="pagination-number">
-                        2
-                    </button>
-
-                    <button class="pagination-number">
-                        3
-                    </button>
-
-                    <button class="pagination-button">
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-
+                <div
+                        class="pagination"
+                        id="pagination"
+                >
                 </div>
 
             </div>
@@ -405,12 +221,14 @@
     </main>
 
 </div>
-
-
+<script src="js/config.js"></script>
 <script>
     lucide.createIcons();
 </script>
 
+<script src="js/auth-guard.js"></script>
+<script src="js/history.js"></script>
+<script src="js/user-header.js"></script>
 </body>
 
 </html>

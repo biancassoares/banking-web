@@ -63,12 +63,18 @@
             <div></div>
 
             <div class="user-menu">
-
-                <div class="user-avatar">
-                    BS
+                <div
+                        class="user-avatar"
+                        id="user-avatar"
+                >
+                    --
                 </div>
 
-                <span>Bianca Soares</span>
+                <span id="user-name">
+    Usuário
+</span>
+
+
 
                 <i data-lucide="chevron-down"></i>
 
@@ -207,6 +213,8 @@
                             type="text"
                             id="destination-account"
                             placeholder="Digite a conta de destino"
+                            min="1"
+                            step="1"
                     >
 
                 </div>
@@ -223,11 +231,12 @@
                         <span>R$</span>
 
                         <input
-                                type="number"
+                                type="text"
                                 id="amount"
                                 placeholder="0,00"
-                                min="0"
-                                step="0.01"
+                                inputmode="decimal"
+                                pattern="^\d+,\d{2}$"
+                                required
                         >
 
                     </div>
@@ -263,13 +272,14 @@
 
 </div>
 
-
+<script src="js/config.js"></script>
 <script src="js/transaction.js"></script>
 
 <script>
     lucide.createIcons();
 </script>
-
+<script src="js/auth-guard.js"></script>
+<script src="js/user-header.js"></script>
 </body>
 
 </html>

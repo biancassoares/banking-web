@@ -64,11 +64,17 @@
 
             <div class="user-menu">
 
-                <div class="user-avatar">
-                    BS
+                <div
+                        class="user-avatar"
+                        id="user-avatar"
+                >
+                    --
                 </div>
 
-                <span>Bianca Soares</span>
+                <span id="user-name">
+    Usuário
+</span>
+
 
                 <i data-lucide="chevron-down"></i>
 
@@ -77,6 +83,7 @@
         </header>
 
 
+        <!-- PAGE HEADER -->
         <!-- PAGE HEADER -->
         <section class="page-header">
 
@@ -98,81 +105,10 @@
 
 
         <!-- ACCOUNTS -->
-        <section class="accounts-grid">
+        <section class="accounts-grid" id="accounts-grid">
 
-            <!-- ACCOUNT 1 -->
-            <article class="account-card">
+            <!-- REAL ACCOUNTS WILL BE LOADED HERE -->
 
-                <h3>Conta Bancária</h3>
-
-                <p class="account-number">
-                    •••• 1234
-                </p>
-
-                <div class="balance-container">
-
-            <span>
-                Saldo disponível
-            </span>
-
-                    <strong>
-                        R$ 4.250,00
-                    </strong>
-
-                </div>
-
-            </article>
-
-
-            <!-- ACCOUNT 2 -->
-            <article class="account-card">
-
-                <h3>Conta Bancária</h3>
-
-                <p class="account-number">
-                    •••• 5678
-                </p>
-
-                <div class="balance-container">
-
-            <span>
-                Saldo disponível
-            </span>
-
-                    <strong>
-                        R$ 8.730,50
-                    </strong>
-
-                </div>
-
-            </article>
-
-
-            <!-- ACCOUNT 3 -->
-            <article class="account-card">
-
-                <h3>Conta Bancária</h3>
-
-                <p class="account-number">
-                    •••• 9101
-                </p>
-
-                <div class="balance-container">
-
-            <span>
-                Saldo disponível
-            </span>
-
-                    <strong>
-                        R$ 12.340,75
-                    </strong>
-
-                </div>
-
-            </article>
-
-
-            <!-- ADD ACCOUNT -->
             <article
                     class="add-account-card"
                     id="add-account-card"
@@ -238,8 +174,7 @@
             <i data-lucide="info"></i>
 
             <p>
-                O número da conta será gerado automaticamente
-                pelo sistema.
+                O número da sua conta será gerado automaticamente ao concluir a criação.
             </p>
 
         </div>
@@ -270,13 +205,20 @@
 
 </div>
 
-
+<script src="js/config.js"></script>
 <script src="js/account.js"></script>
 
 <script>
     lucide.createIcons();
 </script>
+<script src="js/auth-guard.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/account.js"></script>
+<script src="js/user-header.js"></script>
 
+<script>
+    lucide.createIcons();
+</script>
 </body>
 
 </html>

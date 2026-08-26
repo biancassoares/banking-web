@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("create-account-button");
 
 
+    let isCreatingAccount = false;
+
+
     function openAccountModal() {
         accountModal.classList.add("show");
     }
@@ -29,39 +32,97 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    newAccountButton.addEventListener(
-        "click",
-        openAccountModal
-    );
+    newAccountButton.onclick = openAccountModal;
 
-    addAccountCard.addEventListener(
-        "click",
-        openAccountModal
-    );
+    addAccountCard.onclick = openAccountModal;
+
+    accountModalClose.onclick = closeAccountModal;
+
+    accountCancelButton.onclick = closeAccountModal;
 
 
-    accountModalClose.addEventListener(
-        "click",
-        closeAccountModal
-    );
-
-    accountCancelButton.addEventListener(
-        "click",
-        closeAccountModal
-    );
-
-    createAccountButton.addEventListener(
-        "click",
-        closeAccountModal
-    );
-
-
-    accountModal.addEventListener("click", (event) => {
+    accountModal.onclick = (event) => {
 
         if (event.target === accountModal) {
             closeAccountModal();
         }
 
-    });
+    };
+
+
+    createAccountButton.onclick = async () => {
+
+        if (isCreatingAccount) {
+            return;
+        }
+
+        isCreatingAccount = true;
+
+        createAccountButton.disabled = true;
+        createAccountButton.textContent = "Criando...";
+
+        const token =
+            sessionStorage.getItem("token");
+
+
+        try {
+
+            const response = await fetch(`${window.API_URL}/accounts`, {
+                    method: "POST",
+
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                }
+            );
+
+
+            if (response.status === 401) {
+
+                sessionStorage.removeItem("token");
+
+                window.location.href = "index.html";
+
+                return;
+            }
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Não foi possível criar a conta."
+                );
+
+            }
+
+
+            closeAccountModal();
+
+            window.location.reload();
+
+
+        } catch (error) {
+
+            console.error(
+                "Erro ao criar conta:",
+                error
+            );
+
+            alert(
+                "Não foi possível criar a conta."
+            );
+
+
+        } finally {
+
+            isCreatingAccount = false;
+
+            createAccountButton.disabled = false;
+            createAccountButton.textContent =
+                "Criar conta";
+
+        }
+
+    };
 
 });

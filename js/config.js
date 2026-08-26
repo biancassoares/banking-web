@@ -1,0 +1,1 @@
+window.API_URL = "https://banking-api-production-7ec1.up.railway.app";
