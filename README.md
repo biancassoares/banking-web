@@ -2,7 +2,7 @@
 
 Frontend do projeto **Sistema Bancário Simplificado**, desenvolvido para fornecer uma interface visual para a aplicação `banking-api`.
 
-> 🚧 Projeto em desenvolvimento. Atualmente, o foco está na construção da interface e dos fluxos visuais. A integração com o backend será realizada posteriormente.
+> 🚧 Projeto em desenvolvimento. 
 
 ## Tecnologias
 
