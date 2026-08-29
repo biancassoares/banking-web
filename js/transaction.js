@@ -130,6 +130,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 await response.json();
 
             userAccounts = accounts;
+            sessionStorage.setItem(
+                "accountsCache",
+                JSON.stringify(accounts)
+            );
 
             accountSelect.innerHTML = "";
 

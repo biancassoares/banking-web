@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const token = sessionStorage.getItem("token");
+    const token =
+        sessionStorage.getItem("token");
 
     const accountsGrid =
         document.getElementById("accounts-grid");
@@ -9,34 +10,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("add-account-card");
 
 
-    try {
+    function renderAccounts(accounts) {
 
-        const response = await fetch(`${window.API_URL}/accounts`, {
-                method: "GET",
+        const existingCards =
+            accountsGrid.querySelectorAll(".account-card");
 
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
+        existingCards.forEach(card => {
+
+            if (card !== addAccountCard) {
+                card.remove();
             }
-        );
 
-
-        if (response.status === 401) {
-
-            sessionStorage.removeItem("token");
-
-            window.location.href = "index.html";
-
-            return;
-        }
-
-
-        if (!response.ok) {
-            throw new Error("Erro ao buscar contas.");
-        }
-
-
-        const accounts = await response.json();
+        });
 
 
         accounts.forEach(account => {
@@ -63,6 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             accountNumber.classList.add(
                 "account-number"
             );
+
 
             const lastFourDigits =
                 account.accountNumber.slice(-4);
@@ -118,6 +104,80 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
 
         });
+
+    }
+
+
+    const cachedAccounts =
+        sessionStorage.getItem("accountsCache");
+
+
+    if (cachedAccounts) {
+
+        try {
+
+            renderAccounts(
+                JSON.parse(cachedAccounts)
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Erro ao carregar cache de contas:",
+                error
+            );
+
+        }
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            `${window.API_URL}/accounts`,
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization":
+                        `Bearer ${token}`
+                }
+            }
+        );
+
+
+        if (response.status === 401) {
+
+            sessionStorage.removeItem("token");
+
+            window.location.href =
+                "index.html";
+
+            return;
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Erro ao buscar contas."
+            );
+
+        }
+
+
+        const accounts =
+            await response.json();
+
+
+        sessionStorage.setItem(
+            "accountsCache",
+            JSON.stringify(accounts)
+        );
+
+
+        renderAccounts(accounts);
 
 
     } catch (error) {
