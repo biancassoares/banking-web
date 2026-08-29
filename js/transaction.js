@@ -263,35 +263,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 `<i data-lucide="${config.icon}"></i>`;
 
 
-            if (type === "transfer") {
+             if (type === "transfer") {
 
-                destinationAccountField.style.display =
-                    "flex";
+                    destinationAccountField.style.display =
+                   "flex";
 
-                destinationAccountInput.required =
-                    true;
+                    destinationAccountInput.required =
+                      true;
 
+                    loadDestinationAccounts();
 
-            }if (type === "transfer") {
+              } else {
 
-                 destinationAccountField.style.display =
-                     "flex";
+                    destinationAccountField.style.display =
+                         "none";
 
-                 destinationAccountInput.required =
-                     true;
+                     destinationAccountInput.required =
+                        false;
 
-                 loadDestinationAccounts(); else {
+                      destinationAccountInput.value =
+                        "";
 
-                destinationAccountField.style.display =
-                    "none";
-
-                destinationAccountInput.required =
-                    false;
-
-                destinationAccountInput.value =
-                    "";
-
-            }
+   }
 
 
             modal.classList.add("show");
