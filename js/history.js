@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             const response = await fetch(
-                `http://localhost:8080/accounts/${accountId}/transactions?${params.toString()}`,
+                   `${window.API_URL}/accounts/${accountId}/transactions?${params.toString()}`,
                 {
                     headers: {
                         "Authorization":
