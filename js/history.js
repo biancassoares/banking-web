@@ -35,13 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const response = await fetch(`${window.API_URL}/accounts`, {
-                    headers: {
-                        "Authorization":
-                            `Bearer ${token}`
-                    }
-                }
-            );
+        const response = await fetch(
+            `${window.API_URL}/accounts/${accountId}/transactions?${params.toString()}`,
+            {
+                headers: {
+                    "Authorization":
+                        `Bearer ${token}`
+        }
+    }
+);
 
 
             if (response.status === 401) {
