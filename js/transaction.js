@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentTransactionType = null;
     let currentIdempotencyKey = null;
     let isSubmitting = false;
+    let userAccounts = [];
 
 
     const transactionConfig = {
@@ -128,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const accounts =
                 await response.json();
 
+            userAccounts = accounts;
 
             accountSelect.innerHTML = "";
 
@@ -180,6 +182,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    function loadDestinationAccounts() {
+
+        const sourceAccountId =
+            Number(accountSelect.value);
+
+        destinationAccountInput.innerHTML =
+            '<option value="">Selecione a conta de destino</option>';
+
+        const destinationAccounts =
+            userAccounts.filter(
+                account =>
+                    Number(account.id) !== sourceAccountId
+            );
+
+        if (destinationAccounts.length === 0) {
+
+            const option =
+                document.createElement("option");
+
+            option.textContent =
+                "Nenhuma outra conta disponível";
+
+            option.disabled = true;
+
+            destinationAccountInput.appendChild(option);
+
+            return;
+        }
+
+        destinationAccounts.forEach(account => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                account.id;
+
+            const lastFourDigits =
+                account.accountNumber.slice(-4);
+
+            option.textContent =
+                `Conta •••• ${lastFourDigits}`;
+
+            destinationAccountInput.appendChild(option);
+        });
+    }
 
     transactionCards.forEach(card => {
 
@@ -194,8 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             currentTransactionType = type;
 
-            // Uma nova intenção de transação
-            // recebe uma nova Idempotency-Key.
             currentIdempotencyKey =
                 crypto.randomUUID();
 
@@ -225,7 +271,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 destinationAccountInput.required =
                     true;
 
-            } else {
+
+            }if (type === "transfer") {
+
+                 destinationAccountField.style.display =
+                     "flex";
+
+                 destinationAccountInput.required =
+                     true;
+
+                 loadDestinationAccounts(); else {
 
                 destinationAccountField.style.display =
                     "none";
@@ -244,6 +299,13 @@ document.addEventListener("DOMContentLoaded", () => {
             lucide.createIcons();
 
         });
+
+    });
+    accountSelect.addEventListener("change", () => {
+
+        if (currentTransactionType === "transfer") {
+            loadDestinationAccounts();
+        }
 
     });
 
