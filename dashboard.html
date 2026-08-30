@@ -15,8 +15,6 @@
 <body>
 
 <div class="app-container">
-
-    <!-- SIDEBAR -->
     <aside class="sidebar">
 
         <div>
@@ -54,10 +52,8 @@
     </aside>
 
 
-    <!-- MAIN CONTENT -->
     <main class="main-content">
 
-        <!-- TOPBAR -->
         <header class="topbar">
 
             <div></div>
@@ -83,8 +79,6 @@
         </header>
 
 
-        <!-- PAGE HEADER -->
-        <!-- PAGE HEADER -->
         <section class="page-header">
 
             <div>
@@ -104,10 +98,9 @@
         </section>
 
 
-        <!-- ACCOUNTS -->
         <section class="accounts-grid" id="accounts-grid">
 
-            <!-- REAL ACCOUNTS WILL BE LOADED HERE -->
+            <p id="accounts-loading">Carregando contas...</p>
 
             <article
                     class="add-account-card"
@@ -131,12 +124,10 @@
 </div>
 
 
-<!-- NEW ACCOUNT MODAL -->
 <div class="modal-overlay" id="account-modal">
 
     <div class="transaction-modal account-modal">
 
-        <!-- CLOSE -->
         <button
                 type="button"
                 class="modal-close"
@@ -146,7 +137,6 @@
         </button>
 
 
-        <!-- MODAL HEADER -->
         <div class="modal-header">
 
             <div class="modal-icon account-modal-icon">
@@ -167,8 +157,6 @@
 
         </div>
 
-
-        <!-- INFORMATION -->
         <div class="account-info">
 
             <i data-lucide="info"></i>
@@ -180,7 +168,6 @@
         </div>
 
 
-        <!-- ACTIONS -->
         <div class="modal-actions">
 
             <button
@@ -212,8 +199,7 @@
     lucide.createIcons();
 </script>
 <script src="js/auth-guard.js?v=1.0.1"></script>
-<script src="js/dashboard.js?v=1.0.1"></script>
-<script src="js/account.js?v=1.0.1"></script>
+<script src="js/dashboard.js?v=1.0.2"></script>
 <script src="js/user-header.js?v=1.0.1"></script>
 
 <script>

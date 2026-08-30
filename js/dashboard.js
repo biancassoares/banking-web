@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const addAccountCard =
         document.getElementById("add-account-card");
 
+    const accountsLoading =
+        document.getElementById("accounts-loading");
+
+    function hideAccountsLoading() {
+        accountsLoading?.remove();
+    }
+
 
     function renderAccounts(accounts) {
 
@@ -119,6 +126,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             renderAccounts(
                 JSON.parse(cachedAccounts)
             );
+            hideAccountsLoading();
+
 
         } catch (error) {
 
@@ -169,6 +178,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const accounts =
             await response.json();
+
+            hideAccountsLoading();
 
 
         sessionStorage.setItem(
