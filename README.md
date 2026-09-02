@@ -1,42 +1,64 @@
-# Banking Web
+# Banking Web 🏦
 
-Frontend do projeto **Sistema Bancário Simplificado**, desenvolvido para fornecer uma interface visual para a aplicação `banking-api`.
+Frontend desenvolvido para consumir a **Banking API**, projeto backend construído com Java e Spring Boot.
 
-> 🚧 Projeto em desenvolvimento. 
+A aplicação fornece uma interface web para autenticação, gerenciamento de contas e operações financeiras.
 
-## Tecnologias
+## ✨ Funcionalidades
 
-* HTML
-* CSS
-* JavaScript
+- Cadastro e login de usuários
+- Autenticação com JWT
+- Criação e visualização de contas
+- Depósitos, saques e transferências
+- Histórico de transações
+- Filtros e paginação
+- Proteção de páginas autenticadas
+- Logout e controle de sessão
 
-## Funcionalidades atuais
+## 🛠 Tecnologias
 
-* Tela de login
-* Cadastro de usuário
-* Visualização de contas
-* Criação visual de nova conta
-* Depósito
-* Saque
-* Transferência
-* Histórico de transações
-* Filtros e paginação visual
+- HTML5
+- CSS3
+- JavaScript
+- Fetch API
+- Session Storage
+- REST API
+- JWT
 
-Atualmente, os dados utilizados na interface são fictícios para fins de desenvolvimento e demonstração.
+## 🔐 Integração com a API
 
-## Próximos passos
+O frontend consome a Banking API e envia o token JWT nas requisições protegidas.
 
-* Integração com a `banking-api`
-* Autenticação com JWT
-* Consumo dos dados reais das contas
-* Integração de depósito, saque e transferência
-* Histórico com filtros e paginação reais
-* Ajustes finais de responsividade
+As operações financeiras também utilizam `Idempotency-Key`, evitando o processamento duplicado de uma mesma operação.
 
----
+## 🔗 Projetos relacionados
 
-Este repositório contém apenas o frontend da aplicação.
+### Backend
 
-Backend: `banking-api`
+[Banking API](LINK_DO_REPOSITORIO_BANKING_API)
 
-**Projeto em construção 🚧**
+### Demonstração
+
+[Ver no portfólio](https://biancasoares.vercel.app/#projetos)
+
+## 🚀 Executando localmente
+
+Clone o projeto:
+
+```bash
+git clone (https://github.com/biancassoares/banking-web)
+```
+
+Configure a URL da API em:
+
+```text
+js/config.js
+```
+
+Depois execute o projeto utilizando um servidor local.
+
+## 👩🏻‍💻 Autora
+
+**Bianca Soares 😊**
+
+Até o próximo projeto 👋
